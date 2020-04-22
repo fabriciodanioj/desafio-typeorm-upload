@@ -34,7 +34,7 @@ class CreateTransactionService {
     }
 
     const checkIfCategoryExists = await categoriesRepository.findOne({
-      where: { title: category.toLowerCase() },
+      where: { title: category },
     });
 
     if (checkIfCategoryExists) {
@@ -53,7 +53,7 @@ class CreateTransactionService {
     }
 
     const createdCategory = categoriesRepository.create({
-      title: category.toLowerCase(),
+      title: category,
     });
 
     await categoriesRepository.save(createdCategory);
